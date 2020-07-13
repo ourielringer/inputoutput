@@ -1,0 +1,26 @@
+<p>parent works!</p>
+
+<input #inp1 (input)="int1val = inp1.value" /><br />
+<input #inp2 (input)="int2val = inp2.value" /><br />
+
+<!-- 
+    <input #inp1 (input)="inp1.value" >
+<input #inp2 (input)="inp2.value" -->
+
+<app-child [params1]="int1val" [params2]="int2val"></app-child><br />
+
+<app-child name="int1val"></app-child>
+
+<br><br><br>
+
+<h3>output</h3>
+<app-child-output (myEvent) = "num.innerHTML = $event"></app-child-output>
+<div #num></div>
+
+
+<h3>my ngmodel</h3>
+<input #inp3 [value]="int3val" (input)="int3val = inp3.value" /><br />
+
+<app-my-ngmodel [valuein] = int3val (valueout)= "int3val = $event" ></app-my-ngmodel>
+<!-- option 2
+<app-my-ngmodel [(valuein)] ></app-my-ngmodel> -->
